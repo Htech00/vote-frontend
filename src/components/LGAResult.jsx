@@ -29,18 +29,26 @@ export default function LGAResult() {
           </option>
         ))}
       </select>
-
-      <ul>
-        {results.length > 0 ? (
+        <p></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Party</th>
+            <th>Total Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {results.length===0 ? 'No Result Found':
           results.map((r, idx) => (
-            <li key={idx}>
-              {r.party_abbreviation}: {r.total_score}
-            </li>
+            <tr key={idx}>
+              <td>{r.party_abbreviation}</td>
+              <td>{r.total_score}</td>
+            </tr>
           ))
-        ) : (
-          <li>No results found</li>
-        )}
-      </ul>
+          }
+          
+        </tbody>
+      </table>
     </div>
   );
 }
