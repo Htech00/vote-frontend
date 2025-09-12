@@ -10,6 +10,10 @@ export default function LGAResult() {
   }, []);
 
   const handleSelect = async (id) => {
+    if (!id) {
+      setResults([]);
+      return;
+    }
     const res = await fetchLGAResult(id);
     setResults(res);
   };
@@ -20,18 +24,22 @@ export default function LGAResult() {
       <select onChange={(e) => handleSelect(e.target.value)}>
         <option value="">-- Select LGA --</option>
         {lgas.map((lga) => (
-          <option key={lga.uniqueid} value={lga.uniqueid}>
+          <option key={lga.lga_id} value={lga.lga_id}>
             {lga.lga_name}
           </option>
         ))}
       </select>
 
       <ul>
-        {results.map((r, idx) => (
-          <li key={idx}>
-            {r.party_abbreviation}: {r.total_score}
-          </li>
-        ))}
+        {results.length > 0 ? (
+          results.map((r, idx) => (
+            <li key={idx}>
+              {r.party_abbreviation}: {r.total_score}
+            </li>
+          ))
+        ) : (
+          <li>No results found</li>
+        )}
       </ul>
     </div>
   );
