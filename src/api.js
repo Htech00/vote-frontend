@@ -29,19 +29,3 @@ export async function addPollingUnitResult(data) {
   return res.json();
 }
 
-
-
-export async function fetchParties() {
-  const res = await fetch("http://localhost/vote_backend/api.php?action=getParties");
-  return res.json();
-}
-
-export async function storePUResult(payload) {
-  const res = await fetch("http://localhost/vote_backend/api.php?action=storePUResult", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  return res.json();
-}
-

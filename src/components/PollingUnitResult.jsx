@@ -28,13 +28,26 @@ export default function PollingUnitResult() {
         ))}
       </select>
 
-      <ul>
-        {results.map((r, idx) => (
-          <li key={idx}>
-            {r.party_abbreviation}: {r.party_score}
-          </li>
-        ))}
-      </ul>
+      <p></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Party</th>
+            <th>Total Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {results.length===0 ? 'No Result Found':
+          results.map((r, idx) => (
+            <tr key={idx}>
+              <td>{r.party_abbreviation}</td>
+              <td>{r.party_score}</td>
+            </tr>
+          ))
+          }
+          
+        </tbody>
+      </table>
     </div>
   );
 }
