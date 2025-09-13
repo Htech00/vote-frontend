@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PollingUnitResult from "./components/PollingUnitResult";
 import LGAResult from "./components/LGAResult";
 import NewPollingUnit from "./components/NewPollingUnit";
+import StorePUResult from "./components/StorePUResult";
 
 export default function App() {
   const [page, setPage] = useState("polling");

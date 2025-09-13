@@ -15,6 +15,7 @@ export default function NewPollingUnit() {
       party_score: score,
     });
     setMsg(res.message);
+    alert(msg)
   };
 
   return (
