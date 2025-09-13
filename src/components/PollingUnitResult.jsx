@@ -37,7 +37,7 @@ export default function PollingUnitResult() {
           </tr>
         </thead>
         <tbody>
-          {results.length===0 ? 'No Result Found':
+          {!results ? 'No Result Found':
           results.map((r, idx) => (
             <tr key={idx}>
               <td>{r.party_abbreviation}</td>
